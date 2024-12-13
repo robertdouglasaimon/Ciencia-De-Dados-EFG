@@ -19,6 +19,8 @@ Este projeto visa a análise de dados musicais do Spotify no período de 2000 a 
 ## Relatório do Projeto
 O repositório contém um relatório detalhado explicando cada etapa do desenvolvimento do projeto, incluindo a escolha de gráficos e a justificativa para essas escolhas.
 
+<a href='https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG/blob/main/Visualizacao-de-Dados%20-EFG-2024/projeto-spotify-efg/Arquivos%20necessários/Relatorio%20do%20trabalho%20em%20PDF.pdf' target='_blank'>![Ver Relatório](https://img.shields.io/badge/Ver-Relatório-blue)</a>
+
 ## Estrutura do Projeto
 - `dataset/`: Contém a base de dados original do Spotify.
 - `dashboard/`: Arquivo do Power BI com o dashboard interativo.
