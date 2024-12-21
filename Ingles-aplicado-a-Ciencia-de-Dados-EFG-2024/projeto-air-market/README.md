@@ -27,6 +27,6 @@ The repository contains a detailed report explaining each step of the project de
 - `relatorio/`:<a href="https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG/blob/main/Ingles-aplicado-a-Ciencia-de-Dados-EFG-2024/projeto-air-market/projeto-air-market-documentation.pdf" target='_blank'> Detailed document with the project report in English.</a>
 
 ## How to View the Dashboard
-To view the dashboard, download the <a href="https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG/tree/main/Ingles-aplicado-a-Ciencia-de-Dados-EFG-2024/projeto-air-market/Arquivos%20necess%C3%A1rios" target='_blank'>"Necessary Files"</a> folder and the "projeto-air-market.pbix" file, and run the <a href="https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG/blob/main/Ingles-aplicado-a-Ciencia-de-Dados-EFG-2024/projeto-air-market/projeto-air-market.pbix" target='_blank'>projeto-air-market.pbix</a>.
+To view the dashboard, download the <a href="https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG/tree/main/Ingles-aplicado-a-Ciencia-de-Dados-EFG-2024/projeto-air-market/Arquivos%20necess%C3%A1rios" target='_blank'>"Necessary Files" (Arquivos necessários)</a> folder and the "projeto-air-market.pbix" file, and run the <a href="https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG/blob/main/Ingles-aplicado-a-Ciencia-de-Dados-EFG-2024/projeto-air-market/projeto-air-market.pbix" target='_blank'>projeto-air-market.pbix</a>.
 
 Feel free to explore the project and contribute!
