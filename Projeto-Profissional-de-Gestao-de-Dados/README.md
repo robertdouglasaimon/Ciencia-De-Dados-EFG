@@ -1,10 +1,10 @@
 # Formulário de Consultoria
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![GitHub issues](https://img.shields.io/github/issues/robertdouglasaimon/SEU_REPOSITORIO)
-![GitHub forks](https://img.shields.io/github/forks/robertdouglasaimon/SEU_REPOSITORIO)
-![GitHub stars](https://img.shields.io/github/stars/robertdouglasaimon/SEU_REPOSITORIO)
-![GitHub license](https://img.shields.io/github/license/robertdouglasaimon/SEU_REPOSITORIO)
+![GitHub issues](https://img.shields.io/github/issues/robertdouglasaimon/Ciencia-De-Dados-EFG)
+![GitHub forks](https://img.shields.io/github/forks/robertdouglasaimon/Ciencia-De-Dados-EFG)
+![GitHub stars](https://img.shields.io/github/stars/robertdouglasaimon/Ciencia-De-Dados-EFG)
+![GitHub license](https://img.shields.io/github/license/robertdouglasaimon/Ciencia-De-Dados-EFG)
 
 Aplicação de formulário de consultoria desenvolvido em Python utilizando a biblioteca Tkinter para a interface gráfica e SQLite para o banco de dados.
 
@@ -26,12 +26,12 @@ Aplicação de formulário de consultoria desenvolvido em Python utilizando a bi
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+    git clone https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG.git
     ```
 
 2. Navegue até o diretório do projeto:
     ```bash
-    cd SEU_REPOSITORIO
+    cd Ciencia-De-Dados-EFG/Projeto-Profissional-de-Gestao-de-Dados
     ```
 
 3. Instale as dependências necessárias:
@@ -67,4 +67,4 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 ### Abra o `main.py` Diretamente
 
-[![Run main.py](https://img.shields.io/badge/run-main.py-blue)](https://mybinder.org/v2/gh/SEU_USUARIO/SEU_REPOSITORIO/HEAD?filepath=main.py)
+[![Run main.py](https://img.shields.io/badge/run-main.py-blue)](https://mybinder.org/v2/gh/robertdouglasaimon/Ciencia-De-Dados-EFG/HEAD?filepath=Projeto-Profissional-de-Gestao-de-Dados/main.py)
