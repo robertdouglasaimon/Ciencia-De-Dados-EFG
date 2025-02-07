@@ -6,6 +6,8 @@
 ![GitHub stars](https://img.shields.io/github/stars/robertdouglasaimon/Ciencia-De-Dados-EFG)
 ![GitHub license](https://img.shields.io/github/license/robertdouglasaimon/Ciencia-De-Dados-EFG)
 
+![alt text](image.png)
+
 Aplicação de formulário de consultoria desenvolvido em Python utilizando a biblioteca Tkinter para a interface gráfica e SQLite para o banco de dados.
 
 ## Funcionalidades
