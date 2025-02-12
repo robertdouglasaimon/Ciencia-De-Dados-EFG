@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "robertdouglasaimon",
+            "database": "centro_treinamentos",
+            "username": "robertdouglasaimon"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "dados",
+            "database": "${workspaceFolder:projeto-biblioteca}/dados.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
