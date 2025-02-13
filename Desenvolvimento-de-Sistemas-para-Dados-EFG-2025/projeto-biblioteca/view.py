@@ -44,12 +44,37 @@ def exibir_livros():
         print(f'ISBN: {livro[5]}')
         print("\n")
 
+
+# Função para realizar o empréstimo
+def inserir_emprestimo(id_livro, id_usuario, data_emprestimo, data_devolucao):
+    conn = connect()
+    conn.execute("INSERT INTO emprestimos(id_livro, id_usuario, data_emprestimo, data_devolucao) \
+          VALUES (?, ?, ?, ?)", (id_livro, id_usuario, data_emprestimo, data_devolucao))
+    conn.commit()
+    conn.close()
+    
+# Função para exibir todos os livros emprestados no momento
+def livros_emprestados_no_momento():
+    conn = connect()
+    result = conn.execute("SELECT livros.titulo, usuarios.nome, emprestimos.id, usuarios.sobrenome, \
+        emprestimos.data_emprestimo, emprestimos.data_devolucao \
+        FROM livros \
+        INNER JOIN emprestimos ON livros.id = emprestimos.id_livro\
+        INNER JOIN usuarios ON usuarios.id = emprestimos.id_usuario\
+        WHERE emprestimos.data_devolucao IS NULL").fetchall()
+    conn.close()
+    return result
+
 # Inserir dados antes de exibi-los
 # inserir_livro('A arte da guerra', 'Sun Tzu', 'Editora 1', 2000, '1234567890')
 # inserir_usuario('Usuario 1', 'Sobrenome 1', 'Endereco 1', 'Email 1', 'Telefone 1')
 
-inserir_usuario('Usuario 2', 'Sobrenome 2', 'Endereco 2', 'Email 2', 'Telefone 2')
-inserir_livro('Imperio das tormentas', 'Jon Skovron', 'Editora Arqueiro', 2018, '1234567890')
+# Exemplo de uso das funções
+inserir_emprestimo(1, 1, "2023-01-01", None)
+livros_emprestados = livros_emprestados_no_momento()
+print(livros_emprestados)
 
-# Chamando a função exibir_livros para mostrar os livros inseridos
+# update_loan_return_date(2, "2023-02-01")
+    
+# # Chamando a função exibir_livros para mostrar os livros inseridos
 exibir_livros()

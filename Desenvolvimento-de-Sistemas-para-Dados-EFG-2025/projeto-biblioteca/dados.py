@@ -28,7 +28,7 @@ conn.execute('''
     )
 ''')
 
-# Criando tabela de emprestimo de livros
+# Criando tabela de emprestimo de livrosDD
 conn.execute('''
     CREATE TABLE IF NOT EXISTS emprestimos(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
