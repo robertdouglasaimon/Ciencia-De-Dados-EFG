@@ -41,7 +41,7 @@ frameDireita.grid(row=1, column=1, sticky=NSEW)
 
 # Logo da Aplicação ---------------------------------------------
 # Abrindo imagem titulo no cabeçalho
-app_img = Image.open(r"C:\Users\Robert Douglas\Downloads\projeto-biblioteca - 1\projeto-biblioteca\img\icons8-biblioteca-50.png")
+app_img = Image.open(r"D:\ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)\Ciencia-De-Dados-EFG\Desenvolvimento-de-Sistemas-para-Dados-EFG-2025\projeto-biblioteca\img\icons8-biblioteca-50.png")
 app_img = app_img.resize((40, 40))
 app_img = ImageTk.PhotoImage(app_img)
 
@@ -57,42 +57,42 @@ app_linha.place(x=0, y=47)
 
 # Menu ----------------------------------------------------------
 # Novo usuário---------------------------------------------------
-img_usuario = Image.open(r"C:\Users\Robert Douglas\Downloads\projeto-biblioteca - 1\projeto-biblioteca\img\icons8-usuário-100.png")
+img_usuario = Image.open(r"D:\ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)\Ciencia-De-Dados-EFG\Desenvolvimento-de-Sistemas-para-Dados-EFG-2025\projeto-biblioteca\img\icons8-usuário-100.png")
 img_usuario = img_usuario.resize((18, 18))
 img_usuario = ImageTk.PhotoImage(img_usuario)
 b_usuario = Button(frameEsquerda, image=img_usuario, compound=LEFT, anchor=NW, text="Novo Usuário", bg=c04, fg=c01, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_usuario.grid(row=0, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Novo livro---------------------------------------------------
-img_novo_livro = Image.open(r"C:\Users\Robert Douglas\Downloads\projeto-biblioteca - 1\projeto-biblioteca\img\icons8-livro-100.png")
+img_novo_livro = Image.open(r"D:\ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)\Ciencia-De-Dados-EFG\Desenvolvimento-de-Sistemas-para-Dados-EFG-2025\projeto-biblioteca\img\icons8-livro-100.png")
 img_novo_livro = img_novo_livro.resize((18, 18))
 img_novo_livro = ImageTk.PhotoImage(img_novo_livro)
 b_novo_livro = Button(frameEsquerda, image=img_novo_livro, compound=LEFT, anchor=NW, text="Novo Livro", bg=c04, fg=c01, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_novo_livro.grid(row=1, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Ver livro---------------------------------------------------
-img_ver_livro = Image.open(r"C:\Users\Robert Douglas\Downloads\projeto-biblioteca - 1\projeto-biblioteca\img\icons8-livro-100.png")
+img_ver_livro = Image.open(r"D:\ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)\Ciencia-De-Dados-EFG\Desenvolvimento-de-Sistemas-para-Dados-EFG-2025\projeto-biblioteca\img\icons8-livro-100.png")
 img_ver_livro = img_ver_livro.resize((18, 18))
 img_ver_livro = ImageTk.PhotoImage(img_ver_livro)
 b_ver_livro = Button(frameEsquerda, image=img_ver_livro, compound=LEFT, anchor=NW, text="Novo Livro", bg=c04, fg=c01, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_ver_livro.grid(row=2, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Realizar um empréstimo-------------------
-img_emprestimo = Image.open(r"C:\Users\Robert Douglas\Downloads\projeto-biblioteca - 1\projeto-biblioteca\img\icons8-adicionar-100.png")
+img_emprestimo = Image.open(r"D:\ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)\Ciencia-De-Dados-EFG\Desenvolvimento-de-Sistemas-para-Dados-EFG-2025\projeto-biblioteca\img\icons8-adicionar-100.png")
 img_emprestimo = img_emprestimo.resize((18, 18))
 img_emprestimo = ImageTk.PhotoImage(img_emprestimo)
 b_emprestimo = Button(frameEsquerda, image=img_emprestimo, compound=LEFT, anchor=NW, text="Realizar empréstimos", bg=c04, fg=c01, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_emprestimo.grid(row=4, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Devolução de empréstimos-------------------
-img_devolucao = Image.open(r"C:\Users\Robert Douglas\Downloads\projeto-biblioteca - 1\projeto-biblioteca\img\icons8-adicionar-100.png")
+img_devolucao = Image.open(r"D:\ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)\Ciencia-De-Dados-EFG\Desenvolvimento-de-Sistemas-para-Dados-EFG-2025\projeto-biblioteca\img\icons8-adicionar-100.png")
 img_devolucao = img_devolucao.resize((18, 18))
 img_devolucao = ImageTk.PhotoImage(img_devolucao)
 b_devolucao = Button(frameEsquerda, image=img_devolucao, compound=LEFT, anchor=NW, text="Devolução de empréstimos", bg=c04, fg=c01, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_devolucao.grid(row=5, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Livros emprestados no momento-------------------
-img_livros_emprestados = Image.open(r"C:\Users\Robert Douglas\Downloads\projeto-biblioteca - 1\projeto-biblioteca\img\icons8-adicionar-100.png")
+img_livros_emprestados = Image.open(r"D:\ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)\Ciencia-De-Dados-EFG\Desenvolvimento-de-Sistemas-para-Dados-EFG-2025\projeto-biblioteca\img\icons8-adicionar-100.png")
 img_livros_emprestados = img_livros_emprestados.resize((18, 18))
 img_livros_emprestados = ImageTk.PhotoImage(img_livros_emprestados)
 b_livros_emprestados = Button(frameEsquerda, image=img_livros_emprestados, compound=LEFT, anchor=NW, text="Livros emprestados no momento", bg=c04, fg=c01, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
