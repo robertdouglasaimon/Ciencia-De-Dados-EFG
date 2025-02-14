@@ -2,36 +2,40 @@
 import sqlite3
 
 # Conexão com o banco de dados
-conn = sqlite3.connect('dados.db')
+try:
+    conn = sqlite3.connect('dados.db')
+    # ... (resto do seu código)
+    conn.commit()
+    
+except Exception as e:
+    print(f"Ocorreu um erro: {e}")
+    
+# Criando tabela de emprestimo
 
+    
 # Criando a tabela de livros
-conn.execute('''
-    CREATE TABLE IF NOT EXISTS livros (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo TEXT,
-        autor TEXT,
-        editora TEXT,
-        ano_publicacao INTEGER,
-        ISBN TEXT
+conn.execute( 'CREATE TABLE livros ( \
+        id INTEGER PRIMARY KEY AUTOINCREMENT, \
+        titulo TEXT, \
+        autor TEXT, \
+        editora TEXT, \
+        ano_publicacao INTEGER, \
+        isbn TEXT)'
     )
-''')
 
-# Criando a tabela de usuários
-conn.execute('''
-    CREATE TABLE IF NOT EXISTS usuarios(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT,
-        sobrenome TEXT,
-        endereco TEXT,
-        email TEXT,
-        telefone TEXT
+# Criando tabela de usuarios
+conn.execute( 'CREATE TABLE usuarios ( \
+        id INTEGER PRIMARY KEY, \
+        nome TEXT, \
+        sobrenome TEXT, \
+        endereco TEXT, \
+        email TEXT, \
+        telefone TEXT)'
     )
-''')
 
-# Criando tabela de emprestimo de livrosDD
 conn.execute('''
-    CREATE TABLE IF NOT EXISTS emprestimos(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+    CREATE TABLE emprestimo (
+        id INTEGER PRIMARY KEY,
         id_livro INTEGER,
         id_usuario INTEGER,
         data_emprestimo TEXT,
@@ -43,3 +47,4 @@ conn.execute('''
 
 conn.commit()
 conn.close()
+

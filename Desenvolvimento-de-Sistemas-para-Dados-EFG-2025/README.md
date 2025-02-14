@@ -15,22 +15,26 @@ Aplicação de gerenciamento de biblioteca de livros desenvolvida em Python e SQ
 - Exibir livros cadastrados
 - Realizar empréstimos de livros
 - Exibir livros emprestados no momento
+- Visualizar todos os usuários cadastrados
 
 ## Requisitos
 
 - Python 3.8 ou superior
 - SQLite
 
-## Tecnologias Ultilizadas
+## Tecnologias Utilizadas
+
 - Python: Linguagem de programação.
 - SQLite: Banco de dados relacional.
 - Tkinter: Biblioteca para interface gráfica.
 - Pillow: Biblioteca para manipulação de imagens.
 
 ## Status do Projeto
+
 O projeto está atualmente em desenvolvimento, com as funcionalidades básicas de inserção e exibição de dados já implementadas. Recentemente, foram adicionadas funcionalidades para a realização de empréstimos de livros e a exibição dos livros emprestados no momento.
 
 ## Contribuição
+
 1. Faça um fork do projeto.
 2. Crie uma branch para a sua feature (git checkout -b feature/AmazingFeature).
 3. Faça commit das suas alterações (git commit -m 'Add some AmazingFeature').
@@ -82,4 +86,3 @@ Projeto-Profissional-de-Gestao-de-Dados/
 │   ├── icons8-adicionar-100.png
 │   └── ...                  # Outras imagens
 └── README.md                # Documentação do projeto
-
