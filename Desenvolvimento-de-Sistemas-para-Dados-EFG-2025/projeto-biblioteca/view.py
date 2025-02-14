@@ -69,12 +69,15 @@ def livros_emprestados_no_momento():
 # inserir_livro('A arte da guerra', 'Sun Tzu', 'Editora 1', 2000, '1234567890')
 # inserir_usuario('Usuario 1', 'Sobrenome 1', 'Endereco 1', 'Email 1', 'Telefone 1')
 
+# inserir_livro('A culpa é das estrelas', 'John Green', 'Editora 1', 2000, '1234567890')
+# inserir_usuario('Usuario 2', 'Sobrenome 2', 'Endereco 2', 'Email 2', 'Telefone 2')
+
 # Exemplo de uso das funções
 inserir_emprestimo(1, 1, "2023-01-01", "NULL")
 livros_emprestados = livros_emprestados_no_momento()
 print(livros_emprestados)
 
-# update_loan_return_date(2, "2023-02-01")
+# update_loan_return_date(1, "2023-02-01")
     
 # # Chamando a função exibir_livros para mostrar os livros inseridos
 exibir_livros()

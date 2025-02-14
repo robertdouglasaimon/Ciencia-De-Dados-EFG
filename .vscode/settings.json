@@ -16,8 +16,8 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "name": "dados",
-            "database": "${workspaceFolder:Ciencia-De-Dados-EFG}/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/dados.db"
+            "database": "${workspaceFolder:Ciencia-De-Dados-EFG}/dados.db",
+            "name": "dados"
         }
     ]
 }
