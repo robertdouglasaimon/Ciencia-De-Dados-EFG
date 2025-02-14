@@ -70,7 +70,7 @@ def livros_emprestados_no_momento():
 # inserir_usuario('Usuario 1', 'Sobrenome 1', 'Endereco 1', 'Email 1', 'Telefone 1')
 
 # Exemplo de uso das funções
-inserir_emprestimo(1, 1, "2023-01-01", None)
+inserir_emprestimo(1, 1, "2023-01-01", "NULL")
 livros_emprestados = livros_emprestados_no_momento()
 print(livros_emprestados)
 
@@ -78,3 +78,12 @@ print(livros_emprestados)
     
 # # Chamando a função exibir_livros para mostrar os livros inseridos
 exibir_livros()
+
+# Função para exibir o usuário
+def exibir_usuarios():
+    conn = connect()
+    c = conn.cursor()
+    c.execute("SELECT * FROM usuarios")
+    usuarios = c.fetchall()
+    conn.close()
+    return usuarios
