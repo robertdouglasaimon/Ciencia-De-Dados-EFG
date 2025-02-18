@@ -44,7 +44,7 @@ frameDireita.grid(row=1, column=1, sticky=NSEW)
 
 # Logo
 # Abrindo imagem título no cabeçalho -----------------
-app_img = Image.open("icons8-biblioteca-100.png")
+app_img = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-biblioteca-100.png")
 app_img = app_img.resize((40, 40))
 app_img = ImageTk.PhotoImage(app_img)
 
@@ -60,21 +60,21 @@ app_linha.place(x=0, y=47)
 
 # Menu
 # Novo usuário ----------------------
-img_usuario = Image.open("icons8-adicionar-100.png")
+img_usuario = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-adicionar-100.png")
 img_usuario = img_usuario.resize((18, 18))
 img_usuario = ImageTk.PhotoImage(img_usuario)
 b_usuario = Button(frameEsquerda, command=lambda: control('novo_usuario') ,image=img_usuario, compound=LEFT, anchor=NW, text="Novo usuário", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_usuario.grid(row=0, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Novo livro-------------------
-img_novo_livro = Image.open("icons8-adicionar-100.png")
+img_novo_livro = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-adicionar-livro-50.png")
 img_novo_livro = img_novo_livro.resize((18, 18))
 img_novo_livro = ImageTk.PhotoImage(img_novo_livro)
 b_novo_livro = Button(frameEsquerda, image=img_novo_livro, compound=LEFT, anchor=NW, text="Novo livro", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_novo_livro.grid(row=1, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Ver livro----------------------
-img_ver_livro = Image.open("icons8-livro-100.png")
+img_ver_livro = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-livros-48.png")
 print("Imagem carregada:", img_ver_livro)
 img_ver_livro = img_ver_livro.resize((18, 18))
 img_ver_livro = ImageTk.PhotoImage(img_ver_livro)
@@ -85,7 +85,7 @@ b_ver_livro.grid(row=2, column=0, sticky=NSEW, padx=5, pady=6)
 
 
 # Ver usuário----------------------
-img_ver_usuario = Image.open("icons8-usuário-100.png")
+img_ver_usuario = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-usuário-100.png")
 img_ver_usuario = img_ver_usuario.resize((18, 18))
 img_ver_livro = ImageTk.PhotoImage(img_ver_usuario)
 b_ver_usuario = Button(frameEsquerda, image=img_ver_livro, compound=LEFT, anchor=NW, text="Exibir todos os usuários", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
@@ -93,24 +93,26 @@ b_ver_usuario.grid(row=3, column=0, sticky=NSEW, padx=5, pady=6)
 
 
 # Realizar um emprestimo----------------------
-img_emprestimo = Image.open("icons8-adicionar-100.png")
+img_emprestimo = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-empréstimo-contra-títulos-48.png")
 img_emprestimo = img_emprestimo.resize((18, 18))
 img_emprestimo = ImageTk.PhotoImage(img_emprestimo)
 b_emprestimo = Button(frameEsquerda, image=img_emprestimo, compound=LEFT, anchor=NW, text="Realizar um empréstimo", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_emprestimo.grid(row=4, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Devolução de empréstimos----------------------
-img_devolucao = Image.open("icons8-adicionar-100.png")
+img_devolucao = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-devolver-compra-48.png")
 img_devolucao = img_devolucao.resize((18, 18))
 img_devolucao = ImageTk.PhotoImage(img_devolucao)
-b_devolucao = Button(frameEsquerda, image=img_emprestimo, compound=LEFT, anchor=NW, text="Devolução de empréstimos", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_devolucao = Button(frameEsquerda, image=img_devolucao, compound=LEFT, anchor=NW, text="Devolução de empréstimos", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_devolucao.image = img_devolucao  # Mantém uma referência à imagem
 b_devolucao.grid(row=5, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Livros emprestados no momentos----------------------
-img_livros_emprestados = Image.open("icons8-adicionar-100.png")
+img_livros_emprestados = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-livros-32.png")
 img_livros_emprestados = img_livros_emprestados.resize((18, 18))
 img_livros_emprestados = ImageTk.PhotoImage(img_livros_emprestados)
-b_livros_emprestados = Button(frameEsquerda, image=img_emprestimo, compound=LEFT, anchor=NW, text="Livros emprestados no momento", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_livros_emprestados = Button(frameEsquerda, image=img_livros_emprestados, compound=LEFT, anchor=NW, text="Livros emprestados no momento", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_livros_emprestados.image = img_livros_emprestados  # Mantém uma referência à imagem
 b_livros_emprestados.grid(row=6, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Função para controlar o menu
@@ -194,17 +196,13 @@ def novo_usuario():
     b_salvar = Button(frameDireita, image=img_salvar, compound=LEFT, anchor=NW, text="Salvar", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE, command=add)
     b_salvar.grid(row=7, column=1, sticky=NSEW)
     
-# Função para exibir usuário
-def get_users():
-    conn = connect()
-    c = conn.cursor()
-    c.execute("SELECT * FROM usuarios")
-    users = c.fetchall()
-    conn.close()
-    return users
 
 # Ver usuarios
+# Ver usuarios
 def ver_usuarios():
+    # Limpar os elementos da tela
+    for widget in frameDireita.winfo_children():
+        widget.destroy()
 
     app_= Label(frameDireita, text="Todos os usuários do banco de dados", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
     app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
@@ -212,17 +210,18 @@ def ver_usuarios():
     l_linha.grid(row=1, column=0, columnspan=3, sticky=NSEW) 
     
     dados = get_users()
-    list_header = ['ID','Nome', 'Sobrenome', 'Endereço', 'Email', 'Telefone']
+    list_header = ['id', 'nome', 'sobrenome', 'endereco', 'email', 'telefone']
     
     global tree
     
-    tree = ttk.Treeview(frameDireita, selectmode='extended',
-                        columns=list_header, show='headings')
+    tree = ttk.Treeview(frameDireita, selectmode="extended",
+                        columns=list_header, show="headings")
     
     vsb = ttk.Scrollbar(frameDireita, orient="vertical", command=tree.yview)
     hsb = ttk.Scrollbar(frameDireita, orient="horizontal", command=tree.xview)
     tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
-    tree.grid(column=0, row=2, columnspan=3, sticky='nsew')
+    
+    tree.grid(column=0, row=2, sticky='nsew')
     vsb.grid(column=1, row=2, sticky='ns')
     hsb.grid(column=0, row=3, sticky='ew')
     frameDireita.grid_rowconfigure(0, weight=12)
@@ -236,14 +235,15 @@ def ver_usuarios():
         tree.column(col, width=h[n], anchor=hd[n])
         
         n += 1
+        
     for item in dados:
-        tree.insert('', 'end', values=item) 
+        tree.insert('', 'end', values=item)
     
 # Ver usuário----------------------
 img_ver_usuario = Image.open("icons8-usuário-100.png")
 img_ver_usuario = img_ver_usuario.resize((18, 18))
 img_ver_usuario = ImageTk.PhotoImage(img_ver_usuario)
-b_ver_usuario = Button(frameEsquerda, command=lambda: control('ver_usuarios') ,image=img_ver_usuario, compound=LEFT, anchor=NW, text="Exibir todos os usuários", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
-b_ver_usuario.grid(row=3, column=0, sticky=NSEW, padx=5, pady=6)    
+b_ver_usuario = Button(frameEsquerda, command=lambda:ver_usuarios(), image=img_ver_usuario, compound=LEFT, anchor=NW, text="Exibir todos os usuários", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_ver_usuario.grid(row=3, column=0, sticky=NSEW, padx=5, pady=6)      
     
 janela.mainloop()

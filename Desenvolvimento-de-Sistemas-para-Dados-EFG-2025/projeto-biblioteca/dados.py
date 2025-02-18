@@ -25,7 +25,7 @@ conn.execute( 'CREATE TABLE livros ( \
 
 # Criando tabela de usuarios
 conn.execute( 'CREATE TABLE usuarios ( \
-        id INTEGER PRIMARY KEY, \
+        id INTEGER PRIMARY KEY AUTOINCREMENT, \
         nome TEXT, \
         sobrenome TEXT, \
         endereco TEXT, \

@@ -58,6 +58,15 @@ def get_books_on_loan():
     conn.close()
     return result
 
+def get_users():
+    conn = connect()
+    c = conn.cursor()
+    c.execute("SELECT * FROM usuarios")
+    users = c.fetchall()
+    # print(users)
+    conn.close()
+    return users
+
 # Exemplo de como inserir dados no banco de dados
 # insert_book("Império das tormentas", "Jon Skrov", "Editora Arqueiro", 2018, "123456789")
 # insert_user(1, "João", "Silva", "Rua A, 123", "GZ0jg@example.com", "123-456-7890")
