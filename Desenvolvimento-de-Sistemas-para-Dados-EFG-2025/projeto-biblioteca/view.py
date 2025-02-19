@@ -44,8 +44,8 @@ def exibir_livros():
 def exibir_devolucoes():
     conn = connect()
     print("Conexão aberta:", conn)
-    cursor = conn.execute("""SELECT livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome, emprestimo.id, 
-                                     usuarios.sobrenome AS usuario_sobrenome, emprestimo.data_emprestimo, emprestimo.data_devolucao 
+    cursor = conn.execute("""SELECT emprestimo.id, livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome,  
+                                    emprestimo.data_emprestimo, emprestimo.data_devolucao 
                               FROM livros 
                               INNER JOIN emprestimo ON livros.id = emprestimo.id_livro
                               INNER JOIN usuarios ON usuarios.id = emprestimo.id_usuario
@@ -64,8 +64,8 @@ def insert_loan(id_livro, id_usuario, data_emprestimo, data_devolucao):
 # Função para exibir todos os livros emprestados no momento
 def get_books_on_loan():
     conn = connect()
-    result = conn.execute("""SELECT livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome, emprestimo.id, 
-                                     usuarios.sobrenome AS usuario_sobrenome, emprestimo.data_emprestimo, emprestimo.data_devolucao 
+    result = conn.execute("""SELECT emprestimo.id, livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome,  
+                              emprestimo.data_emprestimo
                               FROM livros 
                               INNER JOIN emprestimo ON livros.id = emprestimo.id_livro
                               INNER JOIN usuarios ON usuarios.id = emprestimo.id_usuario
@@ -83,12 +83,15 @@ def get_users():
     return users
 
 # Exemplo de como inserir dados no banco de dados
-# insert_book("Império das tormentas", "Jon Skrov", "Editora Arqueiro", 2018, "123456789")
 # insert_user(1, "João", "Silva", "Rua A, 123", "GZ0jg@example.com", "123-456-7890")
+# insert_book("Império das tormentas", "Jon Skrov", "Editora Arqueiro", 2018, "123456789")
+
+# insert_user(2, "Erika", "Wanessa", "Rua B, 456", "erikawanessa@gmail.com", "987-654-3210")
 # insert_book('A culpa é das estrelas', 'John Green', 'Intri', 2018, '123456789')
 
 # Insere um empréstimo
 # insert_loan(1, 1, "2023-01-01", None)
+# insert_loan(2, 2, "2023-01-01", None)
 livros_emprestados = get_books_on_loan()
 # print(livros_emprestados)
 
