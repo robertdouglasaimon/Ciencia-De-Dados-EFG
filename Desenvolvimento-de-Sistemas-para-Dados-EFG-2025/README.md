@@ -213,5 +213,9 @@ Projeto-Profissional-de-Gestao-de-Dados/
 │   ├── icons8-usuário-100.png
 │   ├── icons8-livro-100.png
 │   ├── icons8-adicionar-100.png
+│   ├── icons8-salvar-100.png
+│   ├── icons8-emprestimo-100.png
+│   ├── icons8-devolucao-100.png
 │   └── ...                  # Outras imagens
 └── README.md                # Documentação do projeto
+
