@@ -61,6 +61,14 @@ def insert_loan(id_livro, id_usuario, data_emprestimo, data_devolucao):
     conn.commit()
     conn.close()
     
+# Função para inserir um livro
+def insert_book(titulo, autor, editora, ano_publicacao, ISBN):
+    conn = connect()
+    conn.execute("INSERT INTO livros (titulo, autor, editora, ano_publicacao, isbn) VALUES (?,?,?,?,?)", (titulo, autor, editora, ano_publicacao, ISBN))
+    conn.commit()
+    print("Livro inserido com sucesso!")
+    conn.close()
+    
 # Função para exibir todos os livros emprestados no momento
 def get_books_on_loan():
     conn = connect()

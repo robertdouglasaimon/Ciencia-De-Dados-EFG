@@ -70,7 +70,7 @@ b_usuario.grid(row=0, column=0, sticky=NSEW, padx=5, pady=6)
 img_novo_livro = Image.open("D:/ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)/Ciencia-De-Dados-EFG/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/icons8-adicionar-livro-50.png")
 img_novo_livro = img_novo_livro.resize((18, 18))
 img_novo_livro = ImageTk.PhotoImage(img_novo_livro)
-b_novo_livro = Button(frameEsquerda, image=img_novo_livro, compound=LEFT, anchor=NW, text="Novo livro", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_novo_livro = Button(frameEsquerda, command=lambda: control('novo_livro'), image=img_novo_livro, compound=LEFT, anchor=NW, text="Novo livro", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_novo_livro.grid(row=1, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Ver livro----------------------
@@ -125,6 +125,19 @@ def control(i):
             widget.destroy()
         # Chamando a função 'novo_usuario'
         novo_usuario()
+        
+    if i == 'novo_livro':
+        # Limpa elementos da tela
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'novo_livro'
+        novo_livro()
+        
+    if i == 'emprestimos':
+        # Limpa elementos da tela
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'emprestimos'
     
     if i == 'ver_usuarios':
         # Limpa elementos da tela
@@ -221,12 +234,79 @@ def novo_usuario():
     e_numero.grid(row=6, column=1, padx=5, pady=5, sticky=NSEW)
     
     # Botão para salvar os dados
-    img_salvar = Image.open("icons8-salvar-100.png")
+    img_salvar = Image.open("D:/ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)/Ciencia-De-Dados-EFG/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/icons8-salvar-100.png")
     img_salvar = img_salvar.resize((18, 18))
     img_salvar = ImageTk.PhotoImage(img_salvar)
-    b_salvar = Button(frameDireita, image=img_salvar, compound=LEFT, anchor=NW, text="Salvar", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE, command=add)
+    b_salvar = Button(frameDireita, image=img_salvar, compound=LEFT, anchor=NW, text="Salvar", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE, command=lambda:control('novo_usuario'))
     b_salvar.grid(row=7, column=1, sticky=NSEW)
+# ---------------------------------------------------- 
+
+def novo_livro():
     
+    global img_salvar
+    
+    def add_livro():
+        title = e_titulo.get()
+        author = e_autor.get()
+        publisher = e_editora.get()
+        year = e_ano.get()
+        isbn = e_isbn.get()
+        
+        lista = [title, author, publisher, year, isbn]
+        
+        for i in lista:
+            if i == '':
+                messagebox.showerror('Erro', 'Todos os campos devem ser preenchidos')
+                return
+        # Inserindo os dados no banco de dados
+        insert_book(title, author, publisher, year, isbn)
+        messagebox.showinfo('Sucesso', 'Livro cadastrado com sucesso')
+
+        # Limpando os campos de entradas
+        e_titulo.delete(0, END)
+        e_autor.delete(0, END)
+        e_editora.delete(0, END)
+        e_ano.delete(0, END)
+        e_isbn.delete(0, END)
+          
+    app_ = Label(frameDireita, text="Inserir um novo livro", width=50, compound=LEFT, padx=5, pady=10, font=('Verdana 12'), bg=co1, fg=co4)
+    app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
+    app_linha = Label(frameDireita, width=400, height=1, anchor=NW, font=('Verdana 1'), bg=co3, fg=co1)
+    app_linha.grid(row=1, column=0, columnspan=3, sticky=NSEW)
+    
+    l_titulo = Label(frameDireita, text="Título do livro", anchor=NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_titulo.grid(row=2, column=0, padx=5, pady=5, sticky=NSEW)
+    e_titulo = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_titulo.grid(row=2, column=1, padx=5, pady=5, sticky=NSEW)
+    
+    l_autor = Label(frameDireita, text="Autor* ", anchor=NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_autor.grid(row=3, column=0, padx=5, pady=5, sticky=NSEW)
+    e_autor = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_autor.grid(row=3, column=1, padx=5, pady=5, sticky=NSEW)
+    
+    l_editora = Label(frameDireita, text="Editora* ", anchor=NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_editora.grid(row=4, column=0, padx=5, pady=5, sticky=NSEW)
+    e_editora = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_editora.grid(row=4, column=1, padx=5, pady=5, sticky=NSEW)
+    
+    l_ano = Label(frameDireita, text="Ano de publicação* ", anchor=NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_ano.grid(row=5, column=0, padx=5, pady=5, sticky=NSEW)
+    e_ano = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_ano.grid(row=5, column=1, padx=5, pady=5, sticky=NSEW)
+    
+    l_isbn = Label(frameDireita, text="ISBN* ", anchor=NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_isbn.grid(row=6, column=0, padx=5, pady=5, sticky=NSEW)
+    e_isbn = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_isbn.grid(row=6, column=1, padx=5, pady=5, sticky=NSEW)
+    
+    # Botão para salvar os dados
+    img_salvar = Image.open("D:/ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)/Ciencia-De-Dados-EFG/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/icons8-salvar-100.png")
+    img_salvar = img_salvar.resize((18, 18))
+    img_salvar = ImageTk.PhotoImage(img_salvar)
+    b_salvar = Button(frameDireita, command = add_livro, image=img_salvar, compound=LEFT, anchor=NW, text="Salvar", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+    b_salvar.grid(row=7, column=1, pady=5, sticky=NSEW)
+# ---------------------------------------------------- 
+
 def ver_usuarios():
 
     app_= Label(frameDireita, text="Todos os usuários do banco de dados", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
