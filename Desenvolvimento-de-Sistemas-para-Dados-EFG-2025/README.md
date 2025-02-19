@@ -16,6 +16,8 @@ Aplicação de gerenciamento de biblioteca de livros desenvolvida em Python e SQ
 - Realizar empréstimos de livros
 - Exibir livros emprestados no momento
 - Visualizar todos os usuários cadastrados
+- Visualizar devoluções de empréstimos
+- Exibir todos os livros disponíveis
 
 ## Requisitos
 
@@ -32,6 +34,133 @@ Aplicação de gerenciamento de biblioteca de livros desenvolvida em Python e SQ
 ## Status do Projeto
 
 O projeto está atualmente em desenvolvimento, com as funcionalidades básicas de inserção e exibição de dados já implementadas. Recentemente, foram adicionadas funcionalidades para a realização de empréstimos de livros e a exibição dos livros emprestados no momento.
+
+## Modificações Recentes
+* Adicionado: Função para inserir um livro insert_book.
+* Adicionado: Função para inserir um usuário insert_user.
+* Adicionado: Função para exibir todos os livros exibir_livros.
+* Adicionado: Função para realizar empréstimos insert_loan.
+* Adicionado: Função para exibir todos os livros emprestados no momento get_books_on_loan.
+
+## Código Adicionado:
+
+``` import sqlite3
+
+# Conexão com o banco de dados
+def connect():
+    conn = sqlite3.connect('dados.db')
+    return conn
+
+# Função para inserir um livro
+def insert_book(titulo, autor, editora, ano_publicacao, ISBN):
+    conn = connect()
+    conn.execute("INSERT INTO livros (titulo, autor, editora, ano_publicacao, isbn) VALUES (?,?,?,?,?)", (titulo, autor, editora, ano_publicacao, ISBN))
+    conn.commit()
+    conn.close()
+
+# Função para inserir um usuário
+def insert_user(id, nome, sobrenome, endereco, email, telefone):
+    conn = connect()
+    conn.execute("INSERT INTO usuarios (id, nome, sobrenome, endereco, email, telefone) VALUES (?,?,?,?,?,?)", (id, nome, sobrenome, endereco, email, telefone))
+    conn.commit()
+    conn.close()
+
+# Função para exibir todos os livros
+def exibir_livros():
+    conn = connect()
+    livros = conn.execute("SELECT * FROM livros").fetchall()
+    conn.close()
+
+    if not livros:
+        print("Nenhum livro encontrado na biblioteca.")
+        return []
+    
+    print("Livros na biblioteca:")
+    for livro in livros:
+        print(f"ID: {livro[0]}")
+        print(f"Título: {livro[1]}")
+        print(f"Autor: {livro[2]}")
+        print(f"Editora: {livro[3]}")
+        print(f"Ano de publicação: {livro[4]}")
+        print(f"ISBN: {livro[5]}")
+        print("\n")
+    return livros
+        
+# Função para realizar empréstimos
+def insert_loan(id_livro, id_usuario, data_emprestimo, data_devolucao):
+    conn = connect()
+    conn.execute("INSERT INTO emprestimo (id_livro, id_usuario, data_emprestimo, data_devolucao) VALUES (?,?,?,?)", (id_livro, id_usuario, data_emprestimo, data_devolucao))
+    conn.commit()
+    conn.close()
+    
+# Função para exibir todos os livros emprestados no momento
+def get_books_on_loan():
+    conn = connect()
+    result = conn.execute("""SELECT livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome, emprestimo.id, 
+                                     usuarios.sobrenome AS usuario_sobrenome, emprestimo.data_emprestimo, emprestimo.data_devolucao 
+                              FROM livros 
+                              INNER JOIN emprestimo ON livros.id = emprestimo.id_livro
+                              INNER JOIN usuarios ON usuarios.id = emprestimo.id_usuario
+                              WHERE emprestimo.data_devolucao IS NULL""").fetchall()
+    conn.close()
+    return result
+
+# Função para exibir devoluções
+def exibir_devolucoes():
+    conn = connect()
+    print("Conexão aberta:", conn)
+    cursor = conn.execute("""SELECT livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome, emprestimo.id, 
+                                     usuarios.sobrenome AS usuario_sobrenome, emprestimo.data_emprestimo, emprestimo.data_devolucao 
+                              FROM livros 
+                              INNER JOIN emprestimo ON livros.id = emprestimo.id_livro
+                              INNER JOIN usuarios ON usuarios.id = emprestimo.id_usuario
+                              WHERE emprestimo.data_devolucao IS NULL""")
+    devolucoes = cursor.fetchall()
+    conn.close()
+    return devolucoes 
+```
+## Alteração 2: Mudanças no Controle do Menu e Formulário de Usuário
+* Adicionado: Função control para controle do menu.
+* Adicionado: Formulário de novo usuário e validação de campos.
+* Adicionado: Função get_users para buscar todos os usuários.
+* Adicionado: Função ver_usuarios para exibir todos os usuários no Treeview.
+* Adicionado: Função exibir_todos_livros para mostrar todos os livros disponíveis.
+* Adicionado: Função devolucao_emprestimos para mostrar devoluções de empréstimos.
+* Adicionado: Função ver_livros_emprestados para exibir livros emprestados no momento.
+
+```
+# Função para controlar o menu
+def control(i):
+    
+    # Novo usuário
+    if i == 'novo_usuario':
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'novo_usuario'
+        novo_usuario()
+    
+    # Exibir todos os usuários
+    if i == 'ver_usuarios':
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'ver_usuarios'
+        ver_usuarios()
+        
+    # Exibir todos os livros
+    if i == 'exibir_todos_livros':
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'exibir_todos_livros'
+        exibir_todos_livros()
+    
+    # Devolução de empréstimos
+    if i == 'devolucao_emprestimos':
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'devolucao_empre
+```
+
+
 
 ## Contribuição
 

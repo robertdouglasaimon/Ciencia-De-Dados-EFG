@@ -27,7 +27,7 @@ def exibir_livros():
 
     if not livros:
         print("Nenhum livro encontrado na biblioteca.")
-        return
+        return []
     
     print("Livros na biblioteca:")
     for livro in livros:
@@ -38,7 +38,22 @@ def exibir_livros():
         print(f"Ano de publicação: {livro[4]}")
         print(f"ISBN: {livro[5]}")
         print("\n")
-        
+    return livros
+
+# Função para exibir as data_devolucao e afins
+def exibir_devolucoes():
+    conn = connect()
+    print("Conexão aberta:", conn)
+    cursor = conn.execute("""SELECT livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome, emprestimo.id, 
+                                     usuarios.sobrenome AS usuario_sobrenome, emprestimo.data_emprestimo, emprestimo.data_devolucao 
+                              FROM livros 
+                              INNER JOIN emprestimo ON livros.id = emprestimo.id_livro
+                              INNER JOIN usuarios ON usuarios.id = emprestimo.id_usuario
+                              WHERE emprestimo.data_devolucao IS NULL""")
+    devolucoes = cursor.fetchall()
+    conn.close()
+    return devolucoes
+    
 # Função para realizar empréstimos
 def insert_loan(id_livro, id_usuario, data_emprestimo, data_devolucao):
     conn = connect()
@@ -70,10 +85,11 @@ def get_users():
 # Exemplo de como inserir dados no banco de dados
 # insert_book("Império das tormentas", "Jon Skrov", "Editora Arqueiro", 2018, "123456789")
 # insert_user(1, "João", "Silva", "Rua A, 123", "GZ0jg@example.com", "123-456-7890")
+# insert_book('A culpa é das estrelas', 'John Green', 'Intri', 2018, '123456789')
 
 # Insere um empréstimo
 # insert_loan(1, 1, "2023-01-01", None)
 livros_emprestados = get_books_on_loan()
-print(livros_emprestados)
+# print(livros_emprestados)
 
 exibir_livros()

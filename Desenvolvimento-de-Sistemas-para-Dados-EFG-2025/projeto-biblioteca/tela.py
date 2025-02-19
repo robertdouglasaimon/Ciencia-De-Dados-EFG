@@ -80,7 +80,7 @@ img_ver_livro = img_ver_livro.resize((18, 18))
 img_ver_livro = ImageTk.PhotoImage(img_ver_livro)
 print("Imagem convertida:", img_ver_livro)
 b_ver_livro = Button(frameEsquerda, image=img_ver_livro, compound=LEFT, anchor=NW, text="Exibir todos os livros", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
-b_ver_livro.image = img_ver_livro  # Mantém uma referência à imagem
+b_ver_livro.image = img_ver_livro 
 b_ver_livro.grid(row=2, column=0, sticky=NSEW, padx=5, pady=6)
 
 
@@ -120,10 +120,41 @@ def control(i):
     
     # Novo usuário
     if i == 'novo_usuario':
+        # Limpa elementos da tela
         for widget in frameDireita.winfo_children():
             widget.destroy()
         # Chamando a função 'novo_usuario'
         novo_usuario()
+    
+    if i == 'ver_usuarios':
+        # Limpa elementos da tela
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'ver_usuarios'
+        ver_usuarios()
+        
+    if i == 'ver_livros_emprestados':
+        # Limpa elementos da tela
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'ver_livros_emprestados'
+        ver_livros_emprestados()
+    
+    if i == 'exibir_todos_livros':
+        # Limpa elementos da tela
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'exibir_todos_livros'
+        exibir_todos_livros()
+        
+    if i == 'devolucao_emprestimos':
+        # Limpa elementos da tela
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'devolucao_emprestimos'
+        devolucao_emprestimos()
+        
+    
         
 # Linha de borda do cabeçalho
 app_linha = Label(frameCima, width=770, padx=5, anchor=NW, font=('Verdana 1'), bg=co3, fg=co1)
@@ -196,13 +227,7 @@ def novo_usuario():
     b_salvar = Button(frameDireita, image=img_salvar, compound=LEFT, anchor=NW, text="Salvar", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE, command=add)
     b_salvar.grid(row=7, column=1, sticky=NSEW)
     
-
-# Ver usuarios
-# Ver usuarios
 def ver_usuarios():
-    # Limpar os elementos da tela
-    for widget in frameDireita.winfo_children():
-        widget.destroy()
 
     app_= Label(frameDireita, text="Todos os usuários do banco de dados", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
     app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
@@ -238,12 +263,152 @@ def ver_usuarios():
         
     for item in dados:
         tree.insert('', 'end', values=item)
-    
+
 # Ver usuário----------------------
-img_ver_usuario = Image.open("icons8-usuário-100.png")
+img_ver_usuario = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-usuário-100.png")
 img_ver_usuario = img_ver_usuario.resize((18, 18))
 img_ver_usuario = ImageTk.PhotoImage(img_ver_usuario)
-b_ver_usuario = Button(frameEsquerda, command=lambda:ver_usuarios(), image=img_ver_usuario, compound=LEFT, anchor=NW, text="Exibir todos os usuários", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
-b_ver_usuario.grid(row=3, column=0, sticky=NSEW, padx=5, pady=6)      
+b_ver_usuario = Button(frameEsquerda, command=lambda:control('ver_usuarios'), image=img_ver_usuario, compound=LEFT, anchor=NW, text="Exibir todos os usuários", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_ver_usuario.grid(row=3, column=0, sticky=NSEW, padx=5, pady=6)  
+# ---------------------------------------------------- 
+
+def exibir_todos_livros():
+    app_= Label(frameDireita, text="Exibir todos os livros", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
+    app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
+    l_linha = Label(frameDireita, width=400, height=1, anchor=NW, font=('Verdana 1'), bg=co3, fg=co1)
+    l_linha.grid(row=1, column=0, columnspan=3, sticky=NSEW)
     
+    dados = exibir_livros()
+    
+    list_header = ['ID', 'Título', 'Autor', 'Editora', 'Ano de publicação', 'ISBN']
+    
+    global tree
+    
+    tree = ttk.Treeview(frameDireita, selectmode="extended",
+                        columns=list_header, show="headings")
+    
+    vsb = ttk.Scrollbar(frameDireita, orient="vertical", command=tree.yview)
+    hsb = ttk.Scrollbar(frameDireita, orient="horizontal", command=tree.xview)
+    tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    
+    tree.grid(column=0, row=2, sticky='nsew')
+    vsb.grid(column=1, row=2, sticky='ns')
+    hsb.grid(column=0, row=3, sticky='ew')
+    frameDireita.grid_rowconfigure(0, weight=12)
+    
+    hd = ["nw", "nw", "nw", "nw", "nw", "nw"]
+    h = [20, 80, 80, 120, 120, 76, 100]
+    n = 0
+    
+    for col in list_header:
+        tree.heading(col, text=col, anchor='nw')
+        tree.column(col, width=h[n], anchor=hd[n])
+        
+        n += 1
+        
+    for item in dados:
+        tree.insert('', 'end', values=item)
+        tree.update()
+    
+# Exibe todos os livros----------------------
+img_exibir_livro = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-livros-48.png")
+img_exibir_livro = img_exibir_livro.resize((18, 18))
+img_exibir_livro = ImageTk.PhotoImage(img_exibir_livro)
+b_exibir_todos_livros = Button(frameEsquerda, image=img_exibir_livro, command=lambda:control('exibir_todos_livros'), compound=LEFT, anchor=NW, text="Exibir todos os livros", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_exibir_todos_livros.grid(row=2, column=0, sticky=NSEW, padx=5, pady=6)
+# ---------------------------------------------------- 
+
+def devolucao_emprestimos():
+    
+    app_= Label(frameDireita, text="Devolução de empréstimos", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
+    app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
+    l_linha = Label(frameDireita, width=400, height=1, anchor=NW, font=('Verdana 1'), bg=co3, fg=co1)
+    l_linha.grid(row=1, column=0, columnspan=3, sticky=NSEW) 
+    
+    dados = exibir_devolucoes()
+    list_header = ['livro_titulo', 'usuario_nome', 'id', 'usuario_sobrenome', 'data_emprestimo', 'data_devolucao']
+    
+    global tree
+    
+    tree = ttk.Treeview(frameDireita, selectmode="extended",
+                        columns=list_header, show="headings")
+    
+    vsb = ttk.Scrollbar(frameDireita, orient="vertical", command=tree.yview)
+    hsb = ttk.Scrollbar(frameDireita, orient="horizontal", command=tree.xview)
+    tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    
+    tree.grid(column=0, row=2, sticky='nsew')
+    vsb.grid(column=1, row=2, sticky='ns')
+    hsb.grid(column=0, row=3, sticky='ew')
+    frameDireita.grid_rowconfigure(0, weight=12)
+    
+    hd = ["nw", "nw", "nw", "nw", "nw", "nw"]
+    h = [20, 80, 80, 120, 120, 76, 100]
+    n = 0
+    
+    for col in list_header:
+        tree.heading(col, text=col, anchor='nw')
+        tree.column(col, width=h[n], anchor=hd[n])
+        
+        n += 1
+        
+    for item in dados:
+        tree.insert('', 'end', values=item)
+        tree.update()
+# Devolução de empréstimos----------------------
+img_devolucao = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-devolver-compra-48.png")
+img_devolucao = img_devolucao.resize((18, 18))
+img_devolucao = ImageTk.PhotoImage(img_devolucao)
+b_devolucao = Button(frameEsquerda, image=img_devolucao,command=lambda:control('devolucao_emprestimos'), compound=LEFT, anchor=NW, text="Devolução de empréstimos", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_devolucao.grid(row=5, column=0, sticky=NSEW, padx=5, pady=6)
+# ---------------------------------------------------- 
+
+def ver_livros_emprestados():
+    print("Função ver_livros_emprestados() chamada")
+    # resto do código
+    app_= Label(frameDireita, text="Livros emprestados no momento", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
+    app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
+    l_linha = Label(frameDireita, width=400, height=1, anchor=NW, font=('Verdana 1'), bg=co3, fg=co1)
+    l_linha.grid(row=1, column=0, columnspan=3, sticky=NSEW) 
+    
+    dados = get_books_on_loan()
+    print(dados)
+    list_header = ['id', 'usuario_nome', 'usuario_sobrenome', 'livro_titulo', 'data_emprestimo', 'data_devolucao']
+    
+    global tree
+    
+    tree = ttk.Treeview(frameDireita, selectmode="extended",
+                        columns=list_header, show="headings")
+    
+    vsb = ttk.Scrollbar(frameDireita, orient="vertical", command=tree.yview)
+    hsb = ttk.Scrollbar(frameDireita, orient="horizontal", command=tree.xview)
+    tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    
+    tree.grid(column=0, row=2, sticky='nsew')
+    vsb.grid(column=1, row=2, sticky='ns')
+    hsb.grid(column=0, row=3, sticky='ew')
+    frameDireita.grid_rowconfigure(0, weight=12)
+    
+    hd = ["nw", "nw", "nw", "nw", "nw", "nw"]
+    h = [20, 80, 80, 120, 120, 76, 100]
+    n = 0
+    
+    for col in list_header:
+        tree.heading(col, text=col, anchor='nw')
+        tree.column(col, width=h[n], anchor=hd[n])
+        
+        n += 1
+        
+    for item in dados:
+        tree.insert('', 'end', values=item)
+        tree.update()        
+
+# Ver livro emprestado----------------------
+img_ver_livro = Image.open("C:/Users/Robert Douglas/Downloads/biblioteca-projeto/icons8-livros-32.png")
+img_ver_livro = img_ver_livro.resize((18, 18))
+img_ver_livro = ImageTk.PhotoImage(img_ver_livro)
+b_livros_emprestados = Button(frameEsquerda, image=img_ver_livro, command=lambda:control('ver_livros_emprestados'), compound=LEFT, anchor=NW, text="Livros emprestados no momento", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_livros_emprestados.grid(row=6, column=0, sticky=NSEW, padx=5, pady=6)
+# ---------------------------------------------------- 
+
 janela.mainloop()
