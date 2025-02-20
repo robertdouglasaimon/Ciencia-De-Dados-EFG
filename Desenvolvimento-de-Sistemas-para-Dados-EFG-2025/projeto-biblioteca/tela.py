@@ -4,6 +4,10 @@ from tkinter import *
 from tkinter import Tk, ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
+from datetime import date
+from datetime import datetime
+hoje = datetime.today()
+print(hoje)
 
 # Importando as funções da view
 from view import *
@@ -96,7 +100,7 @@ b_ver_usuario.grid(row=3, column=0, sticky=NSEW, padx=5, pady=6)
 img_emprestimo = Image.open("D:/ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)/Ciencia-De-Dados-EFG/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/icons8-empréstimo-contra-títulos-48.png")
 img_emprestimo = img_emprestimo.resize((18, 18))
 img_emprestimo = ImageTk.PhotoImage(img_emprestimo)
-b_emprestimo = Button(frameEsquerda, image=img_emprestimo, compound=LEFT, anchor=NW, text="Realizar um empréstimo", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+b_emprestimo = Button(frameEsquerda, command=lambda: control('realizar_emprestimos'), image=img_emprestimo, compound=LEFT, anchor=NW, text="Realizar um empréstimo", bg=co4, fg=co1, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
 b_emprestimo.grid(row=4, column=0, sticky=NSEW, padx=5, pady=6)
 
 # Devolução de empréstimos----------------------
@@ -159,6 +163,13 @@ def control(i):
             widget.destroy()
         # Chamando a função 'exibir_todos_livros'
         exibir_todos_livros()
+        
+    if i == 'realizar_emprestimos':
+        # Limpa elementos da tela
+        for widget in frameDireita.winfo_children():
+            widget.destroy()
+        # Chamando a função 'realizar_emprestimos'
+        realizar_emprestimos()
         
     if i == 'devolucao_emprestimos':
         # Limpa elementos da tela
@@ -237,7 +248,7 @@ def novo_usuario():
     img_salvar = Image.open("D:/ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)/Ciencia-De-Dados-EFG/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/icons8-salvar-100.png")
     img_salvar = img_salvar.resize((18, 18))
     img_salvar = ImageTk.PhotoImage(img_salvar)
-    b_salvar = Button(frameDireita, image=img_salvar, compound=LEFT, anchor=NW, text="Salvar", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE, command=lambda:control('novo_usuario'))
+    b_salvar = Button(frameDireita, image=img_salvar, compound=LEFT, anchor=NW, text="Salvar", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE, command=add)
     b_salvar.grid(row=7, column=1, sticky=NSEW)
 # ---------------------------------------------------- 
 
@@ -398,6 +409,51 @@ b_exibir_todos_livros = Button(frameEsquerda, image=img_exibir_livro, command=la
 b_exibir_todos_livros.grid(row=2, column=0, sticky=NSEW, padx=5, pady=6)
 # ---------------------------------------------------- 
 
+def realizar_emprestimos():
+    
+    global img_salvar
+    
+    def add():  
+        user_id = e_id_usuario.get()
+        book_id = e_id_livro.get()
+        lista = [user_id, book_id]
+        
+        # Verificando se os campos foram preenchidos
+        for i in lista:
+            if i == '':
+                messagebox.showerror('Erro', 'Todos os campos devem ser preenchidos')
+                return
+        # Inserindo os dados no banco de dados
+        insert_loan(user_id, book_id, hoje, None)
+        messagebox.showinfo('Sucesso', 'Emprestimo realizado com sucesso')
+        
+        # Limpando os campos de entradas
+        e_id_usuario.delete(0, END)
+        e_id_livro.delete(0, END)
+        
+    app_= Label(frameDireita, text="Realizar um empréstimo", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
+    app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
+    app_linha = Label(frameDireita, width=400, height=1, anchor=NW, font=('Verdana 1'), bg=co3, fg=co1)
+    app_linha.grid(row=1, column=0, columnspan=3, sticky=NSEW)
+    
+    l_id_usuario = Label(frameDireita, text="Digite o ID do usuário", width=15, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_id_usuario.grid(row=2, column=0,  padx=5, pady=5, sticky=NSEW)
+    e_id_usuario = Entry(frameDireita, width=30, justify='left', font=('Ivy 11'), bg=co3, fg=co1)
+    e_id_usuario.grid(row=2, column=1, padx=5, pady=5, sticky=NSEW)
+    
+    l_id_livro = Label(frameDireita, text="Digite o ID do livro", width=15, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_id_livro.grid(row=3, column=0,  padx=5, pady=5, sticky=NSEW)
+    e_id_livro = Entry(frameDireita, width=25, justify='left', font=('Ivy 11'), bg=co3, fg=co1, relief='solid')
+    e_id_livro.grid(row=3, column=1, padx=5, pady=5, sticky=NSEW)
+    
+    # Botão de salvar
+    img_salvar = Image.open("D:/ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)/Ciencia-De-Dados-EFG/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/icons8-livros-48.png")
+    img_salvar = img_salvar.resize((18, 18))
+    img_salvar = ImageTk.PhotoImage(img_salvar)
+    b_salvar = Button(frameDireita, image=img_salvar, command=add, width=100, compound=LEFT, anchor=NW, text="Realizar empréstimo", bg=co1, fg=co4, font=('Ivy 11'), overrelief=RIDGE, relief=GROOVE)
+    b_salvar.grid(row=7, column=1, sticky=NSEW, pady=5)
+# ---------------------------------------------------- 
+
 def devolucao_emprestimos():
     
     app_= Label(frameDireita, text="Devolução de empréstimos", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
@@ -444,19 +500,23 @@ b_devolucao.grid(row=5, column=0, sticky=NSEW, padx=5, pady=6)
 # ---------------------------------------------------- 
 
 def ver_livros_emprestados():
-    print("Função ver_livros_emprestados() chamada")
-    # resto do código
-    app_= Label(frameDireita, text="Livros emprestados no momento", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
+    app_= Label(frameDireita, text="Todo os livros emprestados no momento", width=50, compound=LEFT, padx=5, pady=10, relief=FLAT, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
     app_.grid(row=0, column=0, columnspan=3, sticky=NSEW)
     l_linha = Label(frameDireita, width=400, height=1, anchor=NW, font=('Verdana 1'), bg=co3, fg=co1)
     l_linha.grid(row=1, column=0, columnspan=3, sticky=NSEW) 
     
-    dados = get_books_on_loan()
-    print(dados)
-    list_header = ['id', 'livro_titulo', 'usuario_nome', 'data_emprestimo']
+    dados = []
+    
+    books_on_loan = get_books_on_loan()
+  
+    for book in books_on_loan:
+        dado = [f"{book[0]}", f"{book[1]}", f"{book[2]}", f"{book[3]}"]
+        dados.append(dado)
+    
+    list_header = ['Titulo', 'Nome do usuário', 'data_emprestimo', 'data_devolucao']
     
     global tree
-     
+    
     tree = ttk.Treeview(frameDireita, selectmode="extended",
                         columns=list_header, show="headings")
     
@@ -469,19 +529,21 @@ def ver_livros_emprestados():
     hsb.grid(column=0, row=3, sticky='ew')
     frameDireita.grid_rowconfigure(0, weight=12)
     
-    hd = ["nw", "nw", "nw", "nw", "nw", "nw"]
-    h = [20, 80, 80, 120, 120, 76, 100]
+    hd = ["nw", "nw", "ne", "ne", "ne", "ne"]
+    h = [175, 120, 90, 90, 100, 100]
     n = 0
     
     for col in list_header:
         tree.heading(col, text=col, anchor='nw')
+    
+    # Ajuste a largura da coluna para a string do cabeçalho
         tree.column(col, width=h[n], anchor=hd[n])
         
         n += 1
         
     for item in dados:
         tree.insert('', 'end', values=item)
-        tree.update()        
+    
 
 # Ver livro emprestado----------------------
 img_ver_livro = Image.open("D:/ARQUIVOS DOS CURSOS DE PROGRAMACAO CIENCIA DE DADOS E MAIS (NUNCA APAGAR EM HIPOTESE NENHUMA)/Ciencia-De-Dados-EFG/Desenvolvimento-de-Sistemas-para-Dados-EFG-2025/projeto-biblioteca/icons8-livros-32.png")

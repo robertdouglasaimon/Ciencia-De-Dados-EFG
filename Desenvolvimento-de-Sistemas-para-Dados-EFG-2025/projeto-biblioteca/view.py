@@ -23,22 +23,10 @@ def insert_user(id, nome, sobrenome, endereco, email, telefone):
 def exibir_livros():
     conn = connect()
     livros = conn.execute("SELECT * FROM livros").fetchall()
-    conn.close()
-
-    if not livros:
-        print("Nenhum livro encontrado na biblioteca.")
-        return []
-    
-    print("Livros na biblioteca:")
-    for livro in livros:
-        print(f"ID: {livro[0]}")
-        print(f"Título: {livro[1]}")
-        print(f"Autor: {livro[2]}")
-        print(f"Editora: {livro[3]}")
-        print(f"Ano de publicação: {livro[4]}")
-        print(f"ISBN: {livro[5]}")
-        print("\n")
+    conn.close()    
     return livros
+
+# exibir_livros() 
 
 # Função para exibir as data_devolucao e afins
 def exibir_devolucoes():
@@ -72,14 +60,15 @@ def insert_book(titulo, autor, editora, ano_publicacao, ISBN):
 # Função para exibir todos os livros emprestados no momento
 def get_books_on_loan():
     conn = connect()
-    result = conn.execute("""SELECT emprestimo.id, livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome,  
-                              emprestimo.data_emprestimo
+    result = conn.execute("""SELECT livros.titulo AS livro_titulo, usuarios.nome AS usuario_nome,  
+                              emprestimo.data_emprestimo, emprestimo.data_devolucao 
                               FROM livros 
                               INNER JOIN emprestimo ON livros.id = emprestimo.id_livro
                               INNER JOIN usuarios ON usuarios.id = emprestimo.id_usuario
                               WHERE emprestimo.data_devolucao IS NULL""").fetchall()
     conn.close()
     return result
+print(get_books_on_loan())
 
 def get_users():
     conn = connect()
