@@ -1,6 +1,9 @@
 import pandas as pd
 import streamlit as st
 from datetime import date, datetime, timedelta
+import os
+
+caminho_datasets = os.path.join(os.path.dirname(__file__), "datasets") # Essa porra aqui que demorei HORAS pra achar, garante que o streamlit funcione em qualquer computador (PQP VIU, DÁ TRABALHO DEMAIS ESSA MERDA!).
 
 PERC_COMISSAO = 0.05
 COLUNAS_ANALISE = ["loja", "vendedor", "produto", "cliente_genero", "forma_pagamento"]

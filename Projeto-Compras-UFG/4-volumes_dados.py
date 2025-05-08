@@ -1,8 +1,10 @@
 import pandas as pd
 import streamlit as st
 from datetime import date, datetime, timedelta
+import os
 
-caminho_datasets = "Projeto-Compras-UFG\datasets"
+caminho_datasets = "Projeto-Compras-UFG/datasets"
+caminho_datasets = os.path.join(os.path.dirname(__file__), "datasets") # Essa porra aqui que demorei HORAS pra achar, garante que o streamlit funcione em qualquer computador (PQP VIU, DÁ TRABALHO DEMAIS ESSA MERDA!).
 
 df_compras = pd.read_csv(f"{caminho_datasets}/compras.csv", sep=";", decimal=",", index_col=0, parse_dates=True)
 df_lojas = pd.read_csv(f"{caminho_datasets}/lojas.csv", sep=";", decimal=",", index_col=0)
