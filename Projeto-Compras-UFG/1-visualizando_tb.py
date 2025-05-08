@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-caminho_compras = pd.read_csv("Projeto-Compras-UFG\datasets\compras.csv", sep=";", decimal=",")
-lojas = pd.read_csv("Projeto-Compras-UFG\datasets\lojas.csv", sep=";", decimal=",")
-produtos = pd.read_csv("Projeto-Compras-UFG\datasets\produtos.csv", sep=";", decimal=",")
+caminho_compras = pd.read_csv("Projeto-Compras-UFG/datasets/compras.csv", sep=";", decimal=",")
+lojas = pd.read_csv("Projeto-Compras-UFG/datasets/lojas.csv", sep=";", decimal=",")
+produtos = pd.read_csv("Projeto-Compras-UFG/datasets/produtos.csv", sep=";", decimal=",")
 
 
 df_compras = pd.DataFrame(caminho_compras)
