@@ -10,7 +10,7 @@ COLUNAS_ANALISE = ["loja", "vendedor", "produto", "cliente_genero", "forma_pagam
 COLUNAS_NUMERICAS = ["preco", "comissao"]
 FUNCOES_AGREGACAO = {"soma": "sum", "contagem": "count"}
 
-caminho_datasets = "Projeto-Compras-UFG\datasets"
+caminho_datasets = "Projeto-Compras-UFG/datasets"
 
 df_compras = pd.read_csv(f"{caminho_datasets}/compras.csv", sep=";", decimal=",", index_col=0, parse_dates=True)
 df_lojas = pd.read_csv(f"{caminho_datasets}/lojas.csv", sep=";", decimal=",", index_col=0)
