@@ -7,7 +7,7 @@ COLUNAS_ANALISE = ["loja", "vendedor", "produto", "cliente_genero", "forma_pagam
 COLUNAS_NUMERICAS = ["preco", "comissao"]
 FUNCOES_AGREGACAO = {"soma": "sum", "contagem": "count"}
 
-caminho_datasets = "datasets"
+caminho_datasets = "Projeto-Compras-UFG\datasets"
 
 df_compras = pd.read_csv(f"{caminho_datasets}/compras.csv", sep=";", decimal=",", index_col=0, parse_dates=True)
 df_lojas = pd.read_csv(f"{caminho_datasets}/lojas.csv", sep=";", decimal=",", index_col=0)
@@ -46,6 +46,6 @@ if len(indice_dinamico) > 0 and len(coluna_dinamica) > 0:
     compras_dinamica.loc["TOTAL_GERAL"] = compras_dinamica.sum(axis=0).to_list()
     st.dataframe(compras_dinamica)
 
-# Usar esse comando aqui: streamlit run 5-tb_dinâmicas.py
+# Usar esse comando aqui: streamlit run Projeto-Compras-UFG\5-tb_dinâmicas.py
 # no terminal para abrir o Streamlit e ver o dataset.
 # CTRL + C no terminal para parar o Streamlit

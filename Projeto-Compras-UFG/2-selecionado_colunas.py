@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-caminho_arquivo = "datasets/compras.csv"
+caminho_arquivo = "Projeto-Compras-UFG\datasets\compras.csv"
 
 df_compras = pd.read_csv(caminho_arquivo, sep=";", decimal=",", index_col=0)
 
@@ -25,6 +25,6 @@ elif st_limpar:
 else:
     st.dataframe(df_compras[colunas_selecionadas])
 
-# Usar esse comando aqui: streamlit run 2-selecionado_colunas.py
+# Usar esse comando aqui: streamlit run Projeto-Compras-UFG\2-selecionado_colunas.py
 # no terminal para abrir o Streamlit e ver o dataset.
 # CTRL + C no terminal para parar o Streamlit

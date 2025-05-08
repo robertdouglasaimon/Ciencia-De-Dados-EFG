@@ -2,7 +2,7 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 
-caminho_datasets = "datasets"
+caminho_datasets = "Projeto-Compras-UFG\datasets"
 
 df_compras = pd.read_csv(f"{caminho_datasets}/compras.csv", sep=";", decimal=",", index_col=0)
 df_lojas = pd.read_csv(f"{caminho_datasets}/lojas.csv", sep=";", decimal=",")
@@ -42,6 +42,6 @@ if st.sidebar.button("Adicionar Nova Compra"):
 st.dataframe(df_compras)
 
 
-# Usar esse comando aqui: streamlit run 3-adicionando_linhas.py
+# Usar esse comando aqui: streamlit run Projeto-Compras-UFG\3-adicionando_linhas.py
 # no terminal para abrir o Streamlit e ver o dataset.
 # CTRL + C no terminal para parar o Streamlit

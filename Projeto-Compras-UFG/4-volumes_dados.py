@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from datetime import date, datetime, timedelta
 
-caminho_datasets = "datasets"
+caminho_datasets = "Projeto-Compras-UFG\datasets"
 
 df_compras = pd.read_csv(f"{caminho_datasets}/compras.csv", sep=";", decimal=",", index_col=0, parse_dates=True)
 df_lojas = pd.read_csv(f"{caminho_datasets}/lojas.csv", sep=";", decimal=",", index_col=0)
@@ -65,6 +65,6 @@ col31.metric("Valor de compras no período", valor_compras_vendedor)
 col32.metric("Comissão no Período", valor_comissao_vendedor)
 
 
-# Usar esse comando aqui: streamlit run 4-volumes_dados.py
+# Usar esse comando aqui: streamlit run Projeto-Compras-UFG\4-volumes_dados.py
 # no terminal para abrir o Streamlit e ver o dataset.
 # CTRL + C no terminal para parar o Streamlit
