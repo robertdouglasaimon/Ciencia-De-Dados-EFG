@@ -51,3 +51,45 @@ O projeto é composto por dois principais módulos:
 
 ```bash
 git clone https://github.com/robertdouglasaimon/Ciencia-De-Dados-EFG.git
+```
+
+2. Navegue até a pasta do projeto:
+
+```bash
+cd Ciencia-De-Dados-EFG/Projeto-Contador-Avaliador-Filmes
+```
+
+3. Instale as dependências (recomendo criar um ambiente virtual):
+
+```bash
+pip install streamlit
+```
+
+4. Execute o app Streamlit:
+
+```bash
+streamlit run app.py
+```
+
+4. Execute o app Streamlit:
+
+## Estrutura do Projeto
+* ### banco.db — arquivo do banco de dados SQLite;
+
+* ### dados.py — funções para conexão, inserção e leitura do banco;
+
+* ### app.py — aplicação Streamlit para interação com o usuário;
+
+* ### Código SQL para criação, atualização e exclusão de dados está embutido nos scripts.
+
+## Agradecimentos
+Este projeto é parte do trabalho acadêmico na disciplina Storytelling de Dados - Aplicação WEB, ministrada pelo professor Felipe na EFG/UFG. Agradeço a oportunidade de aprendizado e desenvolvimento prático.
+
+```
+Se tiver dúvidas ou quiser contribuir, fique à vontade para abrir issues ou pull requests.
+```
+
+##
+
+Robert Douglas <br>
+Projeto desenvolvido em 2025
