@@ -1,7 +1,7 @@
 import sqlite3
 
 # 1 - Criando o BD
-conexao = sqlite3.connect('banco.db')
+conexao = sqlite3.connect('Projeto-Contador-Avaliador-Filmes/banco.db')
 
 # 2 - Criando o cursor
 cursor = conexao.cursor()

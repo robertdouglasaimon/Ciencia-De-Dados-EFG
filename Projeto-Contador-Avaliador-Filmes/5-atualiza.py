@@ -1,7 +1,7 @@
 import sqlite3
 
 # 1 - Conectando no BD
-conexao = sqlite3.connect('banco.db')
+conexao = sqlite3.connect('Projeto-Contador-Avaliador-Filmes/banco.db')
 cursor = conexao.cursor()
 
 # 2 - Atualizando dados
