@@ -1,0 +1,3 @@
+Comando para dar RUN no programa:
+python .\1-db.py
+streamlit run form.py
