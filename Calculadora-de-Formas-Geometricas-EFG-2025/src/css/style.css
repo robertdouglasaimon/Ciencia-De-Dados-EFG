@@ -191,7 +191,7 @@ footer:hover a {
   }
 
   footer {
-    margin-top: 20px;
+    margin-top: 2rem;
     font-size: 0.8rem;
   }
 }
@@ -209,5 +209,10 @@ footer:hover a {
   canvas {
     max-width: 100%;
     height: auto;
+  }
+
+  footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
   }
 }
