@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 911px;
+  max-height: 800px;
+  margin: 0 auto;
+}
+
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #00d8ff;
+  text-align: center;
+}
+
+select, input, button {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+select, input {
+  width: 200px;
+  background-color: #34495e;
+  color: #fff;
+}
+
+button {
+  background-color: #00d8ff;
+  color: #1e1e2f;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #00bcd4;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  background-color: #2c3e50;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+canvas {
+  margin-top: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.gif-frieren {
+  position: relative;
+  right: -20rem;
+  top: -36rem;
+  text-align: center;
+}
+
+.gif-frieren img {
+    border-radius: 10px;
+}
+
+#inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+input[type="range"] {
+  width: 150px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.8rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+footer:hover a {
+  color: #00d8ff;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Responsividade - Mobile */
+@media (max-width: 600px) {
+  select, input, button {
+    width: 100%;
+  }
+
+  #inputs {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 910px) and (min-width: 616px) {
+  .gif-frieren {
+    display: none;
+  }
+
+  footer {
+    margin-top: 7rem;
+    text-align: center;
+  }
+}
+
