@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  
   overflow-x: hidden;
 }
 
@@ -191,7 +191,7 @@ footer:hover a {
   }
 
   footer {
-    margin-top: 2rem;
+    margin-top: 5rem;
     font-size: 0.8rem;
   }
 }
@@ -212,7 +212,7 @@ footer:hover a {
   }
 
   footer {
-    margin-top: 2rem;
+    margin-top: 5rem;
     font-size: 0.8rem;
   }
 }
