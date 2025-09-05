@@ -260,10 +260,24 @@ function logout() {
   window.location.href = "/index.html";
 }
 
-// Função para exibir o tooltip:
-document.getElementById("toggleSidebar").addEventListener("click", () => {
-  document.getElementById("sidebar").classList.toggle("active");
+
+// Comando que quando tira a seta de cima ou clica fora do menu, ele fecha */
+const sidebar = document.getElementById("sidebar");
+const toggle = document.getElementById("toggleSidebar");
+
+// Clique no botão → abre/fecha o menu
+toggle.addEventListener("click", (event) => {
+  event.stopPropagation(); // impede que o clique se propague pro document
+  sidebar.classList.toggle("active");
 });
+
+// Clique fora → fecha o menu
+document.addEventListener("click", (event) => {
+  if (!sidebar.contains(event.target) && event.target !== toggle) {
+    sidebar.classList.remove("active");
+  }
+});
+
 
 
 // Função para carregar a primeira questão:
