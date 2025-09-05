@@ -279,10 +279,30 @@ progress {
     
   }
 
+  /* Sidebar fechada (fora da tela, à esquerda) */
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;              /* largura do menu */
+    height: 100%;              /* ocupa a altura toda */
+    background: #f8f9fa;       /* fundo */
+    border-right: 1px solid #ddd;
+    transform: translateX(-100%); /* começa escondido */
+    transition: transform 0.3s ease; /* animação suave */
+    z-index: 1000;
+  }
+
+  /* Sidebar aberta */
+  #sidebar.active {
+    transform: translateX(0); /* desliza pra dentro */
+  }
+
+
+
   .logout {
     display: none;
   }
-  
 }
 /*-------------------------------------------------*/
 
@@ -440,6 +460,7 @@ progress {
     flex-direction: column;
     align-items: center;
   }
+
 }
 
 .tema-circular {
@@ -516,4 +537,12 @@ progress {
     height: 150px;
     margin: 1rem 0 0 2rem;
   }
+
+}
+
+@media (max-width: 770px) {
+  .tagline {
+    display: none;
+  }
+  
 }

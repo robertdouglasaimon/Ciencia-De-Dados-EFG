@@ -93,313 +93,314 @@
 
     </nav>
   </header>
-<main class="container"> 
-    <div class="perfil">
-      <h2 id="desempenho">Seu Desempenho</h2>
-      <ul class="desempenho">
-        <li>Rendimento: <strong id="rendimento">--%</strong></li>
-        <li>Simulados Iniciados: <strong id="iniciados">--</strong></li>
-        <li>Simulados Completos: <strong id="completos">--</strong></li>
-        <li>Respondidas: <strong id="respondidas">--</strong></li>
-        <li>Corretas: <strong id="corretas">--</strong></li>
-        <li>Erros: <strong id="erros">--</strong></li>
-      </ul>
-    </div>
   
-    <div class="dicas">
-      <h2>Dicas do Dia</h2>
-      <p id="dica">"Palavras com prefixo terminado em vogal e segundo elemento iniciado com a mesma vogal levam hífen."</p>
-    </div>
-  
-    <div class="cronograma-estudo">
-      <h2>Cronograma de Estudo</h2>
-      <p id="data-atual"></p>
-      <div id="cronograma-estudo">
-        <div class="dia-estudo" data-dia="0"><strong>Domingo:</strong> Revisão geral</div>
-        <div class="dia-estudo" data-dia="1"><strong>Segunda-feira:</strong> Ortografia Geral, Acentuação</div>
-        <div class="dia-estudo" data-dia="2"><strong>Terça-feira:</strong> Pronomes, Figuras de Linguagem</div>
-        <div class="dia-estudo" data-dia="3"><strong>Quarta-feira:</strong> Sintaxe, Regência Verbal</div>
-        <div class="dia-estudo" data-dia="4"><strong>Quinta-feira:</strong> Crase, Pontuação</div>
-        <div class="dia-estudo" data-dia="5"><strong>Sexta-feira:</strong> Interpretação de Texto, Coesão e Coerência</div>
-        <div class="dia-estudo" data-dia="6"><strong>Sábado:</strong> Simulados e revisão</div>
-      </div>
-      <div class="novo-cronograma">
-        <button onclick="//" class="btn cronograma-btn">Novo Cronograma</button>
-        <button onclick="//" class="btn cronograma-btn">Editar Cronograma</button>
-      </div>
-    </div>
-  
-    <div class="temas">
-      <h3 id="temas">Progresso por Tema</h3>
-      <div class="tema">
-        <span>Ortografia Geral</span>
-        <progress id="prog-ortografia-geral" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-ortografia-geral">0%</span>
-      </div>
-      <div class="tema">
-        <span>Uso de Hífen</span>
-        <progress id="prog-hifen" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-hifen">0%</span>
-      </div>
-      <div class="tema">
-        <span>Acentuação</span>
-        <progress id="prog-acentuacao" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-acentuacao">0%</span>
-      </div>
-      <div class="tema">
-        <span>Ortografia</span>
-        <progress id="prog-ortografia" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-ortografia">0%</span>
-      </div>
-      <div class="tema">
-        <span>Pronomes</span>
-        <progress id="prog-pronomes" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-pronomes">0%</span>
-      </div>
-      <div class="tema">
-        <span>Figuras de Linguagem</span>
-        <progress id="prog-figuras" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-figuras">0%</span>
-      </div>
-      <div class="tema">
-        <span>Sintaxe</span>
-        <progress id="prog-sintaxe" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-sintaxe">0%</span>
-      </div>
-      <div class="tema">
-        <span>Concordância Verbal</span>
-        <progress id="prog-concordancia-verbal" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-concordancia-verbal">0%</span>
-      </div>
-      <div class="tema">
-        <span>Concordância Nominal</span>
-        <progress id="prog-concordancia-nominal" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-concordancia-nominal">0%</span>
-      </div>
-      <div class="tema">
-        <span>Regência Verbal</span>
-        <progress id="prog-regencia" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-regencia">0%</span>
-      </div>
-      <div class="tema">
-        <span>Crase</span>
-        <progress id="prog-crase" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-crase">0%</span>
-      </div>
-      <div class="tema">
-        <span>Pontuação</span>
-        <progress id="prog-pontuacao" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-pontuacao">0%</span>
-      </div>
-      <div class="tema">
-        <span>Concordância Verbal</span>
-        <progress id="prog-concordancia-verbal" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-concordancia-verbal">0%</span>
-      </div>
-      <div class="tema">
-        <span>Concordância Nominal</span>
-        <progress id="prog-concordancia-nominal" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-concordancia-nominal">0%</span>
-      </div>
-      <div class="tema">
-        <span>Regência Verbal</span>
-        <progress id="prog-regencia" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-regencia">0%</span>
-      </div>
-      <div class="tema">
-        <span>Crase</span>
-        <progress id="prog-crase" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-crase">0%</span>
-      </div>
-      <div class="tema">
-        <span>Pontuação</span>
-        <progress id="prog-pontuacao" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-pontuacao">0%</span>
-      </div>
-      <div class="tema">
-        <span>Interpretação de Texto</span>
-        <progress id="prog-interpretacao" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-interpretacao">0%</span>
-      </div>
-      <div class="tema">
-        <span>Semântica</span>
-        <progress id="prog-semantica" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-semantica">0%</span>
-      </div>
-      <div class="tema">
-        <span>Coesão e Coerência</span>
-        <progress id="prog-coesao" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-coesao">0%</span>
-      </div>
-      <div class="tema">
-        <span>Colocação Pronominal</span>
-        <progress id="prog-colocacao" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-colocacao">0%</span>
-      </div>
-      <div class="tema">
-        <span>Redação Oficial</span>
-        <progress id="prog-redacao" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-redacao">0%</span>
-      </div>
-      <div class="tema">
-        <span>Fonologia</span>
-        <progress id="prog-fonologia" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-fonologia">0%</span>
-      </div>
-      <div class="tema">
-        <span>Morfologia</span>
-        <progress id="prog-morfologia" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-morfologia">0%</span>
-      </div>
-      <div class="tema">
-        <span>Vocabulário</span>
-        <progress id="prog-vocabulario" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-vocabulario">0%</span>
-      </div>
-      <div class="tema">
-        <span>Análise Sintática</span>
-        <progress id="prog-analise-sintatica" value="0" max="176"></progress>
-        <span class="porcentagem" id="porcentagem-analise-sintatica">0%</span>
-      </div>
-  
-      <div class="temas-mobile">
-        <h3>Progresso por Tema</h3>
-        <div class="tema-circular">
-          <canvas id="grafico-ortografia-geral"></canvas>
-          <span>Ortografia Geral</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-hifen"></canvas>
-          <span>Uso de Hífen</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-acentuacao"></canvas>
-          <span>Acentuação</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-ortografia"></canvas>
-          <span>Ortografia</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-pronomes"></canvas>
-          <span>Pronomes</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-figuras"></canvas>
-          <span>Figuras de Linguagem</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-sintaxe"></canvas>
-          <span>Sintaxe</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-concordancia-verbal"></canvas>
-          <span>Concordância Verbal</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-concordancia-nominal"></canvas>
-          <span>Concordância Nominal</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-regencia"></canvas>
-          <span>Regência Verbal</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-crase"></canvas>
-          <span>Crase</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-pontuacao"></canvas>
-          <span>Pontuação</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-interpretacao"></canvas>
-          <span>Interpretação de Texto</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-semantica"></canvas>
-          <span>Semântica</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-coesao"></canvas>
-          <span>Coesão e Coerência</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-colocacao"></canvas>
-          <span>Colocação Pronominal</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-redacao"></canvas>
-          <span>Redação Oficial</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-fonologia"></canvas>
-          <span>Fonologia</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-morfologia"></canvas>
-          <span>Morfologia</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-vocabulario"></canvas>
-          <span>Vocabulário</span>
-        </div>
-        <div class="tema-circular">
-          <canvas id="grafico-analise-sintatica"></canvas>
-          <span>Análise Sintática</span>
-        </div>
-  
-  
-      <!-- Adiciona os outros temas conforme quiser -->
-    </div>
-  
-  
-    </div>
-  
-    <div class="simulado">
-      <h2 id="simulado">Simulado Geral</h2>
-      <h3 id="titulo-questao">Questão 1 — Ortografia</h3>
-      <p id="enunciado">Assinale a alternativa que apresenta a grafia correta:</p>
-      <br>
-  
-      <div class="quiz-form">
-        <form id="quiz"></form>
-      </div>
-  
-      <button onclick="corrigir()" class="btn corrigir-btn">Corrigir</button>
-      <div id="feedback"></div>
-    </div>
-  
-    <div class="redacao">
-      <h2 id="redacao">Redações</h2>
-      <p> Teste seus conhecimentos de redação!</p>
-      <p>Escolha um tema e desenvolva mais seus conhecimentos técnicos em redação dissertativa/argutativa. Torne-se um redator competitivo!</p>
-  
-      <br>
-  
-      <div id="explicacao-criterios">
-        <h4>Critérios de Avaliação:</h4>
-        <ul style="list-style-type: none;">
-          <li><strong>Ortografia:</strong> uso correto de acentuação e caracteres especiais.</li>
-          <li><strong>Argumentação:</strong> profundidade e extensão do texto.</li>
-          <li><strong>Coesão:</strong> uso de conectivos como "portanto", "além disso".</li>
-          <li><strong>Estrutura:</strong> presença de parágrafos e organização.</li>
+  <main class="container"> 
+      <div class="perfil">
+        <h2 id="desempenho">Seu Desempenho</h2>
+        <ul class="desempenho">
+          <li>Rendimento: <strong id="rendimento">--%</strong></li>
+          <li>Simulados Iniciados: <strong id="iniciados">--</strong></li>
+          <li>Simulados Completos: <strong id="completos">--</strong></li>
+          <li>Respondidas: <strong id="respondidas">--</strong></li>
+          <li>Corretas: <strong id="corretas">--</strong></li>
+          <li>Erros: <strong id="erros">--</strong></li>
         </ul>
       </div>
-  
-      <br>
-  
-      <div class="form-redacao">
-        <input type="text" id="titulo-redacao" placeholder="Título da Redação">
-        <textarea id="texto-redacao" rows="10" placeholder="Escreva sua redação aqui..."></textarea>
-        <input type="file" id="upload-redacao" accept=".txt,.docx">
-        <button onclick="analisarRedacao()" class="btn analisar-btn">Analisar Redação</button>
+    
+      <div class="dicas">
+        <h2>Dicas do Dia</h2>
+        <p id="dica">"Palavras com prefixo terminado em vogal e segundo elemento iniciado com a mesma vogal levam hífen."</p>
       </div>
-  
-      <div id="resultado-redacao"></div>
-      <div id="historico-redacoes"></div>
-    </div>
-</main>
+    
+      <div class="cronograma-estudo">
+        <h2>Cronograma de Estudo</h2>
+        <p id="data-atual"></p>
+        <div id="cronograma-estudo">
+          <div class="dia-estudo" data-dia="0"><strong>Domingo:</strong> Revisão geral</div>
+          <div class="dia-estudo" data-dia="1"><strong>Segunda-feira:</strong> Ortografia Geral, Acentuação</div>
+          <div class="dia-estudo" data-dia="2"><strong>Terça-feira:</strong> Pronomes, Figuras de Linguagem</div>
+          <div class="dia-estudo" data-dia="3"><strong>Quarta-feira:</strong> Sintaxe, Regência Verbal</div>
+          <div class="dia-estudo" data-dia="4"><strong>Quinta-feira:</strong> Crase, Pontuação</div>
+          <div class="dia-estudo" data-dia="5"><strong>Sexta-feira:</strong> Interpretação de Texto, Coesão e Coerência</div>
+          <div class="dia-estudo" data-dia="6"><strong>Sábado:</strong> Simulados e revisão</div>
+        </div>
+        <div class="novo-cronograma">
+          <button onclick="//" class="btn cronograma-btn">Novo Cronograma</button>
+          <button onclick="//" class="btn cronograma-btn">Editar Cronograma</button>
+        </div>
+      </div>
+    
+      <div class="temas">
+        <h3 id="temas">Progresso por Tema</h3>
+        <div class="tema">
+          <span>Ortografia Geral</span>
+          <progress id="prog-ortografia-geral" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-ortografia-geral">0%</span>
+        </div>
+        <div class="tema">
+          <span>Uso de Hífen</span>
+          <progress id="prog-hifen" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-hifen">0%</span>
+        </div>
+        <div class="tema">
+          <span>Acentuação</span>
+          <progress id="prog-acentuacao" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-acentuacao">0%</span>
+        </div>
+        <div class="tema">
+          <span>Ortografia</span>
+          <progress id="prog-ortografia" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-ortografia">0%</span>
+        </div>
+        <div class="tema">
+          <span>Pronomes</span>
+          <progress id="prog-pronomes" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-pronomes">0%</span>
+        </div>
+        <div class="tema">
+          <span>Figuras de Linguagem</span>
+          <progress id="prog-figuras" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-figuras">0%</span>
+        </div>
+        <div class="tema">
+          <span>Sintaxe</span>
+          <progress id="prog-sintaxe" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-sintaxe">0%</span>
+        </div>
+        <div class="tema">
+          <span>Concordância Verbal</span>
+          <progress id="prog-concordancia-verbal" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-concordancia-verbal">0%</span>
+        </div>
+        <div class="tema">
+          <span>Concordância Nominal</span>
+          <progress id="prog-concordancia-nominal" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-concordancia-nominal">0%</span>
+        </div>
+        <div class="tema">
+          <span>Regência Verbal</span>
+          <progress id="prog-regencia" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-regencia">0%</span>
+        </div>
+        <div class="tema">
+          <span>Crase</span>
+          <progress id="prog-crase" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-crase">0%</span>
+        </div>
+        <div class="tema">
+          <span>Pontuação</span>
+          <progress id="prog-pontuacao" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-pontuacao">0%</span>
+        </div>
+        <div class="tema">
+          <span>Concordância Verbal</span>
+          <progress id="prog-concordancia-verbal" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-concordancia-verbal">0%</span>
+        </div>
+        <div class="tema">
+          <span>Concordância Nominal</span>
+          <progress id="prog-concordancia-nominal" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-concordancia-nominal">0%</span>
+        </div>
+        <div class="tema">
+          <span>Regência Verbal</span>
+          <progress id="prog-regencia" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-regencia">0%</span>
+        </div>
+        <div class="tema">
+          <span>Crase</span>
+          <progress id="prog-crase" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-crase">0%</span>
+        </div>
+        <div class="tema">
+          <span>Pontuação</span>
+          <progress id="prog-pontuacao" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-pontuacao">0%</span>
+        </div>
+        <div class="tema">
+          <span>Interpretação de Texto</span>
+          <progress id="prog-interpretacao" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-interpretacao">0%</span>
+        </div>
+        <div class="tema">
+          <span>Semântica</span>
+          <progress id="prog-semantica" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-semantica">0%</span>
+        </div>
+        <div class="tema">
+          <span>Coesão e Coerência</span>
+          <progress id="prog-coesao" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-coesao">0%</span>
+        </div>
+        <div class="tema">
+          <span>Colocação Pronominal</span>
+          <progress id="prog-colocacao" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-colocacao">0%</span>
+        </div>
+        <div class="tema">
+          <span>Redação Oficial</span>
+          <progress id="prog-redacao" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-redacao">0%</span>
+        </div>
+        <div class="tema">
+          <span>Fonologia</span>
+          <progress id="prog-fonologia" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-fonologia">0%</span>
+        </div>
+        <div class="tema">
+          <span>Morfologia</span>
+          <progress id="prog-morfologia" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-morfologia">0%</span>
+        </div>
+        <div class="tema">
+          <span>Vocabulário</span>
+          <progress id="prog-vocabulario" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-vocabulario">0%</span>
+        </div>
+        <div class="tema">
+          <span>Análise Sintática</span>
+          <progress id="prog-analise-sintatica" value="0" max="176"></progress>
+          <span class="porcentagem" id="porcentagem-analise-sintatica">0%</span>
+        </div>
+    
+        <div class="temas-mobile">
+          <h3>Progresso por Tema</h3>
+          <div class="tema-circular">
+            <canvas id="grafico-ortografia-geral"></canvas>
+            <span>Ortografia Geral</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-hifen"></canvas>
+            <span>Uso de Hífen</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-acentuacao"></canvas>
+            <span>Acentuação</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-ortografia"></canvas>
+            <span>Ortografia</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-pronomes"></canvas>
+            <span>Pronomes</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-figuras"></canvas>
+            <span>Figuras de Linguagem</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-sintaxe"></canvas>
+            <span>Sintaxe</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-concordancia-verbal"></canvas>
+            <span>Concordância Verbal</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-concordancia-nominal"></canvas>
+            <span>Concordância Nominal</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-regencia"></canvas>
+            <span>Regência Verbal</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-crase"></canvas>
+            <span>Crase</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-pontuacao"></canvas>
+            <span>Pontuação</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-interpretacao"></canvas>
+            <span>Interpretação de Texto</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-semantica"></canvas>
+            <span>Semântica</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-coesao"></canvas>
+            <span>Coesão e Coerência</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-colocacao"></canvas>
+            <span>Colocação Pronominal</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-redacao"></canvas>
+            <span>Redação Oficial</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-fonologia"></canvas>
+            <span>Fonologia</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-morfologia"></canvas>
+            <span>Morfologia</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-vocabulario"></canvas>
+            <span>Vocabulário</span>
+          </div>
+          <div class="tema-circular">
+            <canvas id="grafico-analise-sintatica"></canvas>
+            <span>Análise Sintática</span>
+          </div>
+    
+    
+        <!-- Adiciona os outros temas conforme quiser -->
+      </div>
+    
+    
+      </div>
+    
+      <div class="simulado">
+        <h2 id="simulado">Simulado Geral</h2>
+        <h3 id="titulo-questao">Questão 1 — Ortografia</h3>
+        <p id="enunciado">Assinale a alternativa que apresenta a grafia correta:</p>
+        <br>
+    
+        <div class="quiz-form">
+          <form id="quiz"></form>
+        </div>
+    
+        <button onclick="corrigir()" class="btn corrigir-btn">Corrigir</button>
+        <div id="feedback"></div>
+      </div>
+    
+      <div class="redacao">
+        <h2 id="redacao">Redações</h2>
+        <p> Teste seus conhecimentos de redação!</p>
+        <p>Escolha um tema e desenvolva mais seus conhecimentos técnicos em redação dissertativa/argutativa. Torne-se um redator competitivo!</p>
+    
+        <br>
+    
+        <div id="explicacao-criterios">
+          <h4>Critérios de Avaliação:</h4>
+          <ul style="list-style-type: none;">
+            <li><strong>Ortografia:</strong> uso correto de acentuação e caracteres especiais.</li>
+            <li><strong>Argumentação:</strong> profundidade e extensão do texto.</li>
+            <li><strong>Coesão:</strong> uso de conectivos como "portanto", "além disso".</li>
+            <li><strong>Estrutura:</strong> presença de parágrafos e organização.</li>
+          </ul>
+        </div>
+    
+        <br>
+    
+        <div class="form-redacao">
+          <input type="text" id="titulo-redacao" placeholder="Título da Redação">
+          <textarea id="texto-redacao" rows="10" placeholder="Escreva sua redação aqui..."></textarea>
+          <input type="file" id="upload-redacao" accept=".txt,.docx">
+          <button onclick="analisarRedacao()" class="btn analisar-btn">Analisar Redação</button>
+        </div>
+    
+        <div id="resultado-redacao"></div>
+        <div id="historico-redacoes"></div>
+      </div>
+  </main>
 
 </body>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
