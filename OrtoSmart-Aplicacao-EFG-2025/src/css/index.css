@@ -1,0 +1,128 @@
+/* Splash screen */
+.splash {
+  background-color: #4B0082;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.logo {
+  width: 230px;
+  height: auto;
+}
+
+.app-name {
+  font-size: 6em;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.tagline {
+  font-size: 1.7rem;
+  font-weight: 400;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.btn-entrar {
+  background-color: #9370DB;
+  color: white;
+  padding: 12px 6rem;
+  margin-bottom: 6rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-entrar:hover {
+  background-color: #7B68EE;
+}
+
+footer {
+  background-color: #4B0082;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #179cd1;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .splash {
+    background-color: #4B0082;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+  }
+
+  .splash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  .logo {
+    width: 230px;
+    height: auto;
+  }
+
+  .app-name {
+    font-size: 4em;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .btn-entrar {
+    background-color: #9370DB;
+    color: white;
+    padding: 12px 6rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-entrar:hover {
+    background-color: #7B68EE;
+  }
+}
